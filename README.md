@@ -1,12 +1,11 @@
-# Sheridan Campus Quest — Version 2.2
+# Sheridan Campus Quest
 
 Standalone HTML/CSS/JavaScript version of the hidden-object challenge game.
-It does **not** depend on zat.am.
 
 ## Included
 
 - Firebase Email/Password authentication
-- Optional guest mode
+- Guest mode
 - Separate progress for every signed-in Firebase user
 - Sequential level unlocking for registered players
 - Sequential temporary level unlocking for guest players
@@ -49,25 +48,6 @@ Complete Level 2 → unlock Level 3
 
 Registered progression is stored in Firebase. Guest progression is temporary
 and stays only in the current browser-tab session.
-
-## Important: current level art is temporary
-
-The existing background images and hotspots were carried over so the standalone
-architecture can be tested immediately after Firebase setup. Future
-Sheridan/Open House scenes can replace them while keeping the same `level.js`
-structure and gameplay engine.
-
-## Firebase setup
-
-1. Create a **new Firebase project** for this game.
-2. Add a Web App in Firebase Project Settings.
-3. Open `firebase/FirebaseConfig.js` and replace all placeholder config values.
-4. In Firebase Authentication, enable **Email/Password** sign-in.
-5. Create a Cloud Firestore database.
-6. Publish the rules from `firestore.rules` in Firestore → Rules.
-7. Add your GitHub Pages domain to Firebase Authentication → Settings → Authorized domains if needed.
-
-The project uses Firebase browser ESM modules, so no npm/build step is required.
 
 ## Firestore layout
 
@@ -137,15 +117,3 @@ shared leaderboard.
 - `home.html` — player dashboard + challenge selection
 - `game/game.html?level=1` — gameplay
 - `leaderboard.html` — overall + per-level shared leaderboard
-
-## GitHub Pages
-
-Push this folder as the repository root, then enable GitHub Pages from the
-repository Settings → Pages. The app uses relative URLs so it works under a
-GitHub Pages project path.
-
-## Branding note
-
-The included `S` mark is a custom game mark, not Sheridan College's official
-logo. Use an official Sheridan logo only if Sheridan provides/approves the
-asset for the Open House project.
