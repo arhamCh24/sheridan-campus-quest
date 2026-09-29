@@ -1,0 +1,41 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    match /users/{uid} {
+      allow read, create, update: if isOwner(uid);
+      allow delete: if false;
+
+      match /games/{gameId} {
+        allow read, create, update: if isOwner(uid);
+        allow delete: if false;
+      }
+    }
+
+    match /leaderboards/{levelKey}/players/{playerId} {
+      // Leaderboard standings are public so guest players can view them.
+      // Guest players never receive write permission.
+      allow read: if true;
+
+      allow create, update: if isOwner(playerId)
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.bestScore is int
+        && request.resource.data.bestScore >= 0
+        && request.resource.data.bestScore <= 100
+        && request.resource.data.levelId is int
+        && request.resource.data.levelId >= 1
+        && request.resource.data.attempts is int
+        && request.resource.data.attempts >= 1;
+
+      allow delete: if false;
+    }
+  }
+}

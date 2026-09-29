@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Sheridan Campus Quest - sign in or play as a guest, solve interactive challenges, unlock levels, and compete on the leaderboard."
+    />
+
+    <title>Sheridan Campus Quest</title>
+
+    <link rel="stylesheet" href="assets/css/auth.css" />
+  </head>
+
+  <body>
+    <main class="auth-shell">
+      <section class="auth-brand-panel">
+        <div class="auth-brand-mark" aria-hidden="true">S</div>
+
+        <span class="auth-kicker">OPEN HOUSE INTERACTIVE CHALLENGE</span>
+
+        <h1>
+          Explore.
+          <span>Solve.</span>
+          Unlock.
+        </h1>
+
+        <p>
+          Take on fast interactive challenges, build your score, unlock new
+          levels, and see how you rank against other players.
+        </p>
+
+        <div class="auth-feature-grid" aria-label="Game features">
+          <div>
+            <strong>100</strong>
+            <span>Points available per level</span>
+          </div>
+
+          <div>
+            <strong>3</strong>
+            <span>Chances per challenge</span>
+          </div>
+
+          <div>
+            <strong>LIVE</strong>
+            <span>Shared player leaderboard</span>
+          </div>
+        </div>
+
+        <small class="brand-note">
+          Sheridan-inspired student project. Official Sheridan logo assets are
+          not included in this repository.
+        </small>
+      </section>
+
+      <section class="auth-card-shell">
+        <div class="auth-card">
+          <div class="auth-card-heading">
+            <span class="auth-card-kicker">SHERIDAN CAMPUS QUEST</span>
+            <h2 id="authTitle">Welcome back</h2>
+            <p id="authSubtitle">Sign in to continue your challenge.</p>
+          </div>
+
+          <div class="auth-tabs" role="tablist" aria-label="Account options">
+            <button
+              id="loginTab"
+              class="auth-tab active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+            >
+              Sign In
+            </button>
+
+            <button
+              id="registerTab"
+              class="auth-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+            >
+              Create Account
+            </button>
+          </div>
+
+          <form id="authForm" novalidate>
+            <div id="displayNameField" class="form-field hidden">
+              <label for="displayName">Display name</label>
+
+              <input
+                id="displayName"
+                name="displayName"
+                type="text"
+                maxlength="24"
+                autocomplete="nickname"
+                placeholder="Name shown on the leaderboard"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="password">Password</label>
+
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                minlength="6"
+                placeholder="Minimum 6 characters"
+                required
+              />
+            </div>
+
+            <div id="confirmPasswordField" class="form-field hidden">
+              <label for="confirmPassword">Confirm password</label>
+
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                autocomplete="new-password"
+                minlength="6"
+                placeholder="Re-enter your password"
+              />
+            </div>
+
+            <p id="authMessage" class="auth-message" aria-live="polite"></p>
+
+            <button id="submitButton" class="auth-submit" type="submit">
+              Sign In
+            </button>
+          </form>
+
+          <div class="guest-divider" aria-hidden="true">
+            <span>OR</span>
+          </div>
+
+          <button id="guestButton" class="guest-button" type="button">
+            <span class="guest-button-icon" aria-hidden="true">▶</span>
+
+            <span>
+              <strong>Play as Guest</strong>
+              <small>Sequential guest progression • leaderboard scores are not saved</small>
+            </span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="assets/js/auth.js"></script>
+  </body>
+</html>

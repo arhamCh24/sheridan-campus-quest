@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Sheridan Campus Quest leaderboard - compare the best scores and fastest completion times for every available challenge."
+    />
+
+    <title>Leaderboard | Sheridan Campus Quest</title>
+
+    <link rel="stylesheet" href="shared/css/app-shell.css" />
+    <link rel="stylesheet" href="assets/css/leaderboard.css" />
+  </head>
+
+  <body>
+    <div id="appHeader"></div>
+
+    <main class="leaderboard-main">
+      <section class="leaderboard-hero">
+        <div>
+          <span class="page-kicker">LIVE EVENT LEADERBOARD</span>
+          <h1>Every point matters. Every second counts.</h1>
+          <p>
+            Compare overall performance or open any challenge leaderboard.
+            Overall score combines each registered player's best score from
+            every challenge they have completed.
+          </p>
+        </div>
+
+        <div class="rank-rule-card">
+          <span>RANKING RULE</span>
+          <strong>Best scores build your total.</strong>
+          <small>Only signed-in player results are saved to the leaderboard.</small>
+        </div>
+      </section>
+
+      <section class="leaderboard-shell">
+        <div class="leaderboard-toolbar">
+          <div>
+            <span class="toolbar-kicker">SELECT CHALLENGE</span>
+            <div id="levelTabs" class="level-tabs" role="tablist"></div>
+          </div>
+
+          <div id="viewerModeBadge" class="viewer-mode-badge"></div>
+        </div>
+
+        <div class="leaderboard-overview">
+          <div class="leaderboard-summary-card">
+            <span>PLAYERS RANKED</span>
+            <strong id="leaderboardPlayers">0</strong>
+          </div>
+
+          <div class="leaderboard-summary-card">
+            <span id="leaderboardBestScoreLabel">TOP SCORE</span>
+            <strong id="leaderboardBestScore">—</strong>
+          </div>
+
+          <div class="leaderboard-summary-card">
+            <span id="leaderboardFastestTimeLabel">FASTEST TOP RUN</span>
+            <strong id="leaderboardFastestTime">—</strong>
+          </div>
+
+          <div class="leaderboard-summary-card personal-summary">
+            <span>YOUR POSITION</span>
+            <strong id="leaderboardYourRank">—</strong>
+          </div>
+        </div>
+
+        <div class="leaderboard-card">
+          <div class="leaderboard-card-header">
+            <div>
+              <span id="leaderboardLevelBadge">LEVEL</span>
+              <h2 id="leaderboardTitle">Loading leaderboard...</h2>
+            </div>
+
+            <span id="playerRankBadge" class="player-rank-badge hidden"></span>
+          </div>
+
+          <div id="leaderboardPodium" class="leaderboard-podium hidden"></div>
+
+          <div class="standings-heading">
+            <div>
+              <span>FULL STANDINGS</span>
+              <strong id="standingsTitle">Top players for this challenge</strong>
+            </div>
+
+            <small id="standingsNote">Best run per signed-in player</small>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Player</th>
+                  <th id="leaderboardScoreHeader">Best Score</th>
+                  <th id="leaderboardTimeHeader">Best Time</th>
+                  <th id="leaderboardAttemptsHeader">Attempts</th>
+                </tr>
+              </thead>
+
+              <tbody id="leaderboardBody"></tbody>
+            </table>
+
+            <div id="leaderboardEmpty" class="leaderboard-empty hidden">
+              <strong>No scores yet</strong>
+              <p>Be the first signed-in player to complete this challenge.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="settingsDialog" class="settings-dialog">
+      <form method="dialog">
+        <button class="settings-close" value="cancel" aria-label="Close">×</button>
+      </form>
+
+      <h2>Game Settings</h2>
+
+      <label>
+        <span>
+          <strong>Sound</strong>
+          <small>Play game audio when available.</small>
+        </span>
+        <input id="soundSetting" type="checkbox" />
+      </label>
+
+      <label>
+        <span>
+          <strong>Show hints</strong>
+          <small>Display challenge hints during gameplay.</small>
+        </span>
+        <input id="hintSetting" type="checkbox" />
+      </label>
+    </dialog>
+
+    <script type="module" src="assets/js/leaderboard.js"></script>
+  </body>
+</html>
